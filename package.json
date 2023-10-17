@@ -1,0 +1,22 @@
+{
+  "name": "slack-to-ticket",
+  "version": "0.1.0",
+  "description": "slack thread - create a ticket - slack event is a emoji",
+  "main": "index.js",
+  "scripts": {
+    "test": "c8 ava test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github:roebi/slack-to-ticket.git"
+  },
+  "keywords": [
+    "slack-api"
+  ],
+  "author": "roebi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/roebi/slack-to-ticket/issues"
+  },
+  "homepage": "https://github.com/roebi/slack-to-ticket#readme"
+}

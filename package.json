@@ -2,8 +2,9 @@
   "name": "slack-to-ticket",
   "version": "0.1.0",
   "description": "slack thread - create a ticket - slack event is a emoji",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "c8 ava test.js"
   },
   "repository": {

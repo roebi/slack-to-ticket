@@ -1,6 +1,6 @@
 const { App, LogLevel } = require("@slack/bolt");
 
-import './env';
+import "./env";
 
 // bolt using typescript
 // see
@@ -12,14 +12,14 @@ import './env';
 // https://www.youtube.com/watch?v=JUORwadOU7s
 
 const app = new App({
-  token: process.env.SLACK_BOT_TOKEN,
-  appToken: process.env.SLACK_APP_TOKEN,
+  // token: process.env.SLACK_BOT_TOKEN,
+  // appToken: process.env.SLACK_APP_TOKEN,
   signingSecret: process.env.SLACK_SIGNING_SECRET,
   logLevel: LogLevel.DEBUG,
   // TODO https://github.com/roebi/slack-to-ticket/issues/3 remove socketMode
   // https://www.npmjs.com/package/@slack/bolt
   // uses SocketMode
-  socketMode: true
+  socketMode: false,
 });
 
 // listening to events https://slack.dev/bolt-js/concepts#event-listening

@@ -42,6 +42,8 @@ current not issues registered in https://github.com/roebi/slack-to-ticket/issues
 - remove entry https://www.typescriptlang.org/tsconfig#noImplicitAny in tsconfig.json later
 - needed? https://github.com/slackapi/bolt-js/blob/main/examples/getting-started-typescript/tsconfig.eslint.json
 - use https://www.npmjs.com/package/dotenv
+- see https://www.dotenv.org/
+- for details see https://github.com/motdotla/dotenv/tree/master
 - use https://www.npmjs.com/package/ts-node and some of iths other addon packages
 - is https://www.npmjs.com/package/tslib useful ? This library is primarily used by the --importHelpers flag in TypeScript.
 - do we need a node function like node-fetch https://www.npmjs.com/package/node-fetch ?

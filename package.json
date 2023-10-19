@@ -2,10 +2,24 @@
   "name": "slack-to-ticket",
   "version": "0.1.0",
   "description": "slack thread - create a ticket - slack event is a emoji",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "c8 ava test.js"
+    "compile": "tsc",
+    "prettier:help": "npx prettier --help",
+    "prettier:check": "npx prettier --check .",
+    "prettier:listdifferent": "npx prettier --list-different .",
+    "prettier:write": "npx prettier --write .",
+    "test:ava": "ava",
+    "test:ava:watch": "ava --watch",
+    "test:tsd": "tsd",
+    "test:nocoverage": "ava src/test.js",
+    "srccoverage:test": "c8 ava src/test.js",
+    "srccoverage:genreport": "c8 report --reporter html",
+    "srccoverage:showreport": "open-cli coverage/index.html",
+    "jsdoc:gen": "jsdoc -c jsdocconfig.json .",
+    "jsdoc:show": "open-cli jsdoc/index.html",
+    "start": "node src/app.js",
+    "test": "c8 ava src/test.js && c8 report --reporter html && open-cli coverage/index.html"
   },
   "repository": {
     "type": "git",
@@ -21,6 +35,28 @@
   },
   "homepage": "https://github.com/roebi/slack-to-ticket#readme",
   "dependencies": {
-    "@slack/bolt": "^3.14.0"
+    "@slack/bolt": "^3.14.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@ava/typescript": "^4.1.0",
+    "@tsconfig/node18": "^18.2.2",
+    "@types/node": "^20.8.7",
+    "ava": "^5.3.1",
+    "c8": "^8.0.1",
+    "jsdoc": "^4.0.2",
+    "open-cli": "^7.2.0",
+    "prettier": "3.0.3",
+    "ts-node": "^10.9.1",
+    "tsd": "^0.29.0",
+    "typescript": "^5.2.2"
+  },
+  "ava": {
+    "typescript": {
+      "rewritePaths": {
+        "src/": "build/"
+      },
+      "compile": false
+    }
   }
 }

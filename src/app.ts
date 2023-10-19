@@ -5,7 +5,9 @@ const { App } = require("@slack/bolt");
 // https://slack.dev/bolt-js/tutorial/using-typescript
 // https://github.com/slackapi/bolt-js/tree/main/examples/getting-started-typescript
 
-
+// https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html
+// https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html
+// https://www.youtube.com/watch?v=JUORwadOU7s
 
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
@@ -29,7 +31,7 @@ const generalChannelId = "C061NA516DS";
 
 // When a member has added an emoji reaction to an item
 // https://api.slack.com/events/reaction_added
-app.event("reaction_added", async ({ event: any, client: any, logger: any }) => {
+app.event("reaction_added", async ({ event, client, logger }) => {
   // TODO https://github.com/roebi/slack-to-ticket/issues/2 use the ticket emoji to trigger the event - current all emoji trigger the event
   try {
     // TODO https://github.com/roebi/slack-to-ticket/issues/8 do not use generalChannelId - should answer in the current thread of the current message

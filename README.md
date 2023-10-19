@@ -39,7 +39,7 @@ Go to the installed workspace and add a emoji in a channel where the app is regi
 
 current not issues registered in https://github.com/roebi/slack-to-ticket/issues for this issues:
 
-- recheck with https://github.com/slackapi/bolt-js/blob/main/examples/getting-started-typescript/tsconfig.json for "rootDir": "src", "outDir": "dist", "include" "src/**/*" : needs move of source filse in src dir
+- remove entry https://www.typescriptlang.org/tsconfig#noImplicitAny in tsconfig.json later
 - needed? https://github.com/slackapi/bolt-js/blob/main/examples/getting-started-typescript/tsconfig.eslint.json
 - use https://www.npmjs.com/package/dotenv
 - use https://www.npmjs.com/package/ts-node and some of iths other addon packages

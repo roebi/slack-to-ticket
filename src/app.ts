@@ -31,16 +31,18 @@ const app = new App({
 // For example: https://my-slack-app.example.com/slack/events.
 // Otherwise, all incoming requests from Slack won't be handled.
 
+// https://slack.dev/bolt-js/concepts#event-listening
+
 // When a member has added an :ticket: emoji reaction to an item
 // https://api.slack.com/events/reaction_added
 app.event("reaction_added", async ({ event, client, logger }) => {
-  logger.error("reaction_added event ...");
-  logger.error("event:");
-  logger.error(event);
-  logger.error("client:");
-  logger.error(client);
-  logger.error("logger:");
-  logger.error(logger);
+  logger.debug("reaction_added event ...");
+  logger.debug("event.reaction:");
+  logger.debug(event.reaction);
+  logger.debug("client:");
+  logger.debug(client);
+  logger.debug("logger:");
+  logger.debug(logger);
   // TODO https://github.com/roebi/slack-to-ticket/issues/2 use the :ticket: emoji to trigger the event - current all emoji trigger the event
   try {
     // TODO https://github.com/roebi/slack-to-ticket/issues/8 do not use generalChannelId - should answer in the current thread of the current message
@@ -62,6 +64,6 @@ app.event("reaction_added", async ({ event, client, logger }) => {
   console.log("slack-to-ticket app is running!");
 })();
 
-app.use(async ({ next }) => {
-  await next();
-});
+// app.use(async ({ next }) => {
+//   await next();
+// });

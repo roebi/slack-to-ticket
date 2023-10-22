@@ -2,7 +2,7 @@
   "name": "slack-to-ticket",
   "version": "0.1.0",
   "description": "slack thread - create a ticket - slack event is a emoji",
-  "main": "src/app.js",
+  "main": "dist/app.js",
   "scripts": {
     "compile": "tsc",
     "prettier:help": "npx prettier --help",
@@ -12,14 +12,14 @@
     "test:ava": "ava",
     "test:ava:watch": "ava --watch",
     "test:tsd": "tsd",
-    "test:nocoverage": "ava src/test.js",
-    "srccoverage:test": "c8 ava src/test.js",
+    "test:nocoverage": "ava dist/test.js",
+    "srccoverage:test": "c8 ava dist/test.js",
     "srccoverage:genreport": "c8 report --reporter html",
     "srccoverage:showreport": "open-cli coverage/index.html",
     "jsdoc:gen": "jsdoc -c jsdocconfig.json .",
     "jsdoc:show": "open-cli jsdoc/index.html",
-    "start": "node src/app.js",
-    "test": "c8 ava src/test.js && c8 report --reporter html && open-cli coverage/index.html"
+    "start": "node dist/app.js",
+    "test": "c8 ava dist/test.js && c8 report --reporter html && open-cli coverage/index.html"
   },
   "repository": {
     "type": "git",

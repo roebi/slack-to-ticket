@@ -48,6 +48,7 @@ current not issues registered in https://github.com/roebi/slack-to-ticket/issues
 - is https://www.npmjs.com/package/tslib useful ? This library is primarily used by the --importHelpers flag in TypeScript.
 - do we need a node function like node-fetch https://www.npmjs.com/package/node-fetch ?
 - https://www.npmjs.com/package/tsd : node run test:tsd need a The test file `app.test-d.ts` or `app.test-d.tsx` does not exist. Create one and try again.
+- https://api.slack.com/reference/deep-linking
 
 ## dev doc
 

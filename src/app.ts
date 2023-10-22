@@ -12,7 +12,7 @@ import "./env";
 // https://www.youtube.com/watch?v=JUORwadOU7s
 
 const app = new App({
-  // token: process.env.SLACK_BOT_TOKEN,
+  token: process.env.SLACK_BOT_TOKEN,
   // appToken: process.env.SLACK_APP_TOKEN,
   signingSecret: process.env.SLACK_SIGNING_SECRET,
   logLevel: LogLevel.DEBUG,

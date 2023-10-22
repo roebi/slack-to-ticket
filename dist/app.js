@@ -27,6 +27,7 @@ const app = new App({
     // https://www.npmjs.com/package/@slack/bolt
     // uses SocketMode
     socketMode: false,
+    port: process.env.PORT || 3000
 });
 // listening to events https://slack.dev/bolt-js/concepts#event-listening
 // TODO https://github.com/roebi/slack-to-ticket/issues/1 reaction_added is not recognized
@@ -60,7 +61,7 @@ app.event("reaction_added", ({ event, client, logger }) => __awaiter(void 0, voi
 }));
 (() => __awaiter(void 0, void 0, void 0, function* () {
     // start app
-    yield app.start(process.env.PORT || 3000);
+    yield app.start();
     console.log("slack-to-ticket app is running!");
 }))();
 //# sourceMappingURL=app.js.map

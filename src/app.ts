@@ -37,8 +37,12 @@ const app = new App({
 // https://api.slack.com/events/reaction_added
 app.event("reaction_added", async ({ event, client, logger }) => {
   logger.debug("reaction_added event ...");
+  logger.debug("event:");
+  logger.debug(event);
   logger.debug("event.reaction:");
   logger.debug(event.reaction);
+  logger.debug("event.user:");
+  logger.debug(event.user);
   logger.debug("client:");
   logger.debug(client);
   logger.debug("logger:");
@@ -49,7 +53,7 @@ app.event("reaction_added", async ({ event, client, logger }) => {
     // Call chat.postMessage with the built-in client
     const result = await client.chat.postMessage({
       channel: event.item.channel,
-      text: `Thank you, <@${event.user.id}>, emoji recognized. Ticket will be created. Just a moment please. Wait here for the link to the ticket ...`,
+      text: `Thank you, <@${event.user}>, emoji recognized. Ticket will be created. Just a moment please. Wait here for the link to the ticket ...`,
     });
     logger.info(result);
   } catch (error) {

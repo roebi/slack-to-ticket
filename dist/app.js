@@ -1,35 +1,13 @@
 "use strict";
-var __awaiter =
-  (this && this.__awaiter) ||
-  function (thisArg, _arguments, P, generator) {
-    function adopt(value) {
-      return value instanceof P
-        ? value
-        : new P(function (resolve) {
-            resolve(value);
-          });
-    }
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
-      function fulfilled(value) {
-        try {
-          step(generator.next(value));
-        } catch (e) {
-          reject(e);
-        }
-      }
-      function rejected(value) {
-        try {
-          step(generator["throw"](value));
-        } catch (e) {
-          reject(e);
-        }
-      }
-      function step(result) {
-        result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
-      }
-      step((generator = generator.apply(thisArg, _arguments || [])).next());
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
-  };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const { App, LogLevel } = require("@slack/bolt");
 require("./env");
@@ -41,14 +19,14 @@ require("./env");
 // https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html
 // https://www.youtube.com/watch?v=JUORwadOU7s
 const app = new App({
-  token: process.env.SLACK_BOT_TOKEN,
-  // appToken: process.env.SLACK_APP_TOKEN,
-  signingSecret: process.env.SLACK_SIGNING_SECRET,
-  logLevel: LogLevel.DEBUG,
-  // TODO https://github.com/roebi/slack-to-ticket/issues/3 remove socketMode
-  // https://www.npmjs.com/package/@slack/bolt
-  // uses SocketMode
-  socketMode: false,
+    token: process.env.SLACK_BOT_TOKEN,
+    // appToken: process.env.SLACK_APP_TOKEN,
+    signingSecret: process.env.SLACK_SIGNING_SECRET,
+    logLevel: LogLevel.DEBUG,
+    // TODO https://github.com/roebi/slack-to-ticket/issues/3 remove socketMode
+    // https://www.npmjs.com/package/@slack/bolt
+    // uses SocketMode
+    socketMode: false,
 });
 // listening to events https://slack.dev/bolt-js/concepts#event-listening
 // TODO https://github.com/roebi/slack-to-ticket/issues/1 reaction_added is not recognized
@@ -58,26 +36,31 @@ const app = new App({
 // Otherwise, all incoming requests from Slack won't be handled.
 // When a member has added an :ticket: emoji reaction to an item
 // https://api.slack.com/events/reaction_added
-app.event("reaction_added", ({ event, client, logger }) =>
-  __awaiter(void 0, void 0, void 0, function* () {
+app.event("reaction_added", ({ event, client, logger }) => __awaiter(void 0, void 0, void 0, function* () {
+    logger.info("reaction_added event ...");
+    logger.info("event:");
+    logger.info(event);
+    logger.info("client:");
+    logger.info(client);
+    logger.info("logger:");
+    logger.info(logger);
     // TODO https://github.com/roebi/slack-to-ticket/issues/2 use the :ticket: emoji to trigger the event - current all emoji trigger the event
     try {
-      // TODO https://github.com/roebi/slack-to-ticket/issues/8 do not use generalChannelId - should answer in the current thread of the current message
-      // Call chat.postMessage with the built-in client
-      const result = yield client.chat.postMessage({
-        channel: event.item.channel,
-        text: `Thank you, <@${event.user.id}>, emoji recognized. Ticket will be created. Just a moment please. Wait here for the link to the ticket ...`,
-      });
-      logger.info(result);
-    } catch (error) {
-      logger.error(error);
+        // TODO https://github.com/roebi/slack-to-ticket/issues/8 do not use generalChannelId - should answer in the current thread of the current message
+        // Call chat.postMessage with the built-in client
+        const result = yield client.chat.postMessage({
+            channel: event.item.channel,
+            text: `Thank you, <@${event.user.id}>, emoji recognized. Ticket will be created. Just a moment please. Wait here for the link to the ticket ...`,
+        });
+        logger.info(result);
     }
-  }),
-);
-(() =>
-  __awaiter(void 0, void 0, void 0, function* () {
+    catch (error) {
+        logger.error(error);
+    }
+}));
+(() => __awaiter(void 0, void 0, void 0, function* () {
     // start app
     yield app.start(process.env.PORT || 3000);
     console.log("slack-to-ticket app is running!");
-  }))();
+}))();
 //# sourceMappingURL=app.js.map

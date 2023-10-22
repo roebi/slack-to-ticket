@@ -33,13 +33,13 @@ const app = new App({
 // When a member has added an :ticket: emoji reaction to an item
 // https://api.slack.com/events/reaction_added
 app.event("reaction_added", async ({ event, client, logger }) => {
-  console.log("reaction_added event ...");
-  console.log("event:");
-  console.log(event);
-  console.log("client:");
-  console.log(client);
-  console.log("logger:");
-  console.log(logger);
+  logger.error("reaction_added event ...");
+  logger.error("event:");
+  logger.error(event);
+  logger.error("client:");
+  logger.error(client);
+  logger.error("logger:");
+  logger.error(logger);
   // TODO https://github.com/roebi/slack-to-ticket/issues/2 use the :ticket: emoji to trigger the event - current all emoji trigger the event
   try {
     // TODO https://github.com/roebi/slack-to-ticket/issues/8 do not use generalChannelId - should answer in the current thread of the current message

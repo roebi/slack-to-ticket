@@ -20,7 +20,7 @@ const app = new App({
   // https://www.npmjs.com/package/@slack/bolt
   // uses SocketMode
   socketMode: false,
-  port: process.env.PORT || 3000
+  port: Number(process.env.PORT) || 3000
 });
 
 // listening to events https://slack.dev/bolt-js/concepts#event-listening
@@ -61,3 +61,7 @@ app.event("reaction_added", async ({ event, client, logger }) => {
 
   console.log("slack-to-ticket app is running!");
 })();
+
+app.use(async ({ next }) => {
+  await next();
+});

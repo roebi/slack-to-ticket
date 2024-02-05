@@ -41,7 +41,7 @@
   "devDependencies": {
     "@ava/typescript": "^4.1.0",
     "@tsconfig/node18": "^18.2.2",
-    "@types/node": "^20.11.10",
+    "@types/node": "^20.11.16",
     "ava": "^6.1.0",
     "c8": "^9.1.0",
     "jsdoc": "^4.0.2",

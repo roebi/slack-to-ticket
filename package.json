@@ -36,7 +36,7 @@
   "homepage": "https://github.com/roebi/slack-to-ticket#readme",
   "dependencies": {
     "@slack/bolt": "^4.4.0",
-    "dotenv": "^17.0.0"
+    "dotenv": "^17.2.2"
   },
   "devDependencies": {
     "@ava/typescript": "^6.0.0",
